@@ -1,7 +1,16 @@
-import React from 'react'
+export default function Home({stocks}) {
 
-export default function Home() {
   return (
-    <div>Home</div>
+    <main className="Home">
+      {stocks.map((stock, index)=>(
+          <section key={index}>
+            <h2>{stock.name}</h2>
+            <h3>{stock.code}</h3>
+            <div>Preco: {stock.price}€</div>
+          </section>
+        ))
+      }
+    </main>
+    
   )
 }
