@@ -1,0 +1,22 @@
+.App{
+  max-width: 980px;
+  margin:0 auto;
+}
+nav{
+  background: linear-gradient(to right,#060, #0D0);
+}
+nav ul{
+  list-style: none;
+}
+
+nav li{
+  display: inline-block;
+  margin-right: 6px;
+}
+nav li a{
+  color:#FFF;
+  text-decoration: none;
+}
+nav li a:hover{
+  color:#111;
+}
