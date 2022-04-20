@@ -20,18 +20,31 @@ export default function Detail() {
     }));
   }
 
+  function Display(){
+    if(stock){
+      
+      if(stock.code){
+        return(
+          <section>
+            <h2>{stock.name}</h2>
+            <h3>{stock.code}</h3>
+            <div>Preco: {stock.price}€</div>
+            <div>
+              <button onClick={toogleFavorite}>{stock.isFavorite? "Dislike":"Like"}</button>
+            </div>
+          </section>
+        );
+      }
+      else{
+        return (<p>No stock to show</p>);
+      }
+    }
+    else{
+      return(<p>Loading...</p>);
+    }
+  }
+
   return (
-    <div>
-      {stock && (
-        <section>
-          <h2>{stock.name}</h2>
-          <h3>{stock.code}</h3>
-          <div>Preco: {stock.price}€</div>
-          <div>
-            <button onClick={toogleFavorite}>{stock.isFavorite? "Desfavoritar":"Favoritar"}</button>
-          </div>
-        </section>
-      )}
-    </div>
+    <Display/>
   )
 }

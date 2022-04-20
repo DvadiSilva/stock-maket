@@ -8,9 +8,9 @@ export default function Home({stocks}) {
           <section key={index}>
             <h2>{stock.name}</h2>
             <h3>{stock.code}</h3>
-            <div>Preco: {stock.price}€</div>
+            <div>Price: {stock.price}€</div>
             <div>
-              <NavLink to={"/detail/" +stock.code}>Ver Detalhe</NavLink>
+              <NavLink to={"/detail/" +stock.code}>See Detail</NavLink>
             </div>
           </section>
         ))
