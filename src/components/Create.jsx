@@ -11,7 +11,6 @@ export default function Create() {
   
 
   function handleChange(event){
-    console.log("handleChange: ", event.target.value);
     const {name, value}= event.target; //obter o name do input e o value e colocar em variáveis
 
     setStock(prevState=> ({
@@ -22,7 +21,16 @@ export default function Create() {
 
   function handleSubmit(event){
     event.preventDefault();
-    console.log("handleSubmit: ");
+    
+    fetch("https://justivo.com/stockws.php?add", {
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(stock)
+    })
+    .then(response=> response.json())
+    .then(result=> console.log(result));
   }
 
   return (
@@ -30,7 +38,7 @@ export default function Create() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            Nome
+            Name
             <input type="text" name="name" required minLength="4" maxLength="60" onChange={handleChange} value={stock.name}/>
           </label>
         </div>
@@ -43,7 +51,7 @@ export default function Create() {
         <div>
           <label>
             Price
-            <input type="number" name="price" required minLength="1" maxLength="99999" onChange={handleChange} value={stock.price}/>
+            <input type="number" name="price" required min="1" max="99999" onChange={handleChange} value={stock.price}/>
           </label>
         </div>
         <div>
