@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Create() {
+  const navigate= useNavigate();
 
   const [stock, setStock]= useState({
     name:"",
     code:"",
     price: 0
   });
-
-  
 
   function handleChange(event){
     const {name, value}= event.target; //obter o name do input e o value e colocar em variáveis
@@ -30,7 +30,7 @@ export default function Create() {
       body: JSON.stringify(stock)
     })
     .then(response=> response.json())
-    .then(result=> console.log(result));
+    .then(result=> navigate("/detail/"+ result.code)); //redirecionar para a página que quisermos
   }
 
   return (
