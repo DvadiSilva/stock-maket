@@ -4,6 +4,7 @@ import './App.css';
 import Create from './components/Create';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Detail from './components/Detail';
 
 function App() {
   const [stocks,setStocks]= useState([]);
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element= {<Home stocks={stocks}/>}/>
             <Route path="/create" element= {<Create/>}/>
+            <Route path="/detail/:code" element={<Detail/>}/>
           </Routes>
       </div>
     </BrowserRouter>
